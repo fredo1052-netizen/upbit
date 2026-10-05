@@ -1,10 +1,10 @@
 import streamlit as st
 import requests
 
-# 💡 스티브의 투자 정보 세팅 (화면 분석 기반)
+# 💡 스티브의 투자 정보 세팅 (정확한 데이터로 업데이트)
 AVG_PRICE = 26.86  # 매수평균가
-PRINCIPAL = 22481894  # 원금 (평가금액 16,323,772 - 평가손익 -6,158,122)
-COIN_AMOUNT = PRINCIPAL / AVG_PRICE  # 보유 수량 (약 837,002 개)
+PRINCIPAL = 22481901  # 매수금액 (원금)
+COIN_AMOUNT = 837116.81341779  # 보유 수량
 TICKER = "KRW-BOUNTY"
 
 st.set_page_config(page_title="BOUNTY 실시간 현황", page_icon="📈", layout="centered")
@@ -44,6 +44,6 @@ if current_price:
         st.metric(label="수익률", value=f"{profit_rate:.2f} %")
     
     st.divider()
-    st.info(f"**총 매수금액 (원금):** {PRINCIPAL:,} 원\n\n**보유 수량:** {COIN_AMOUNT:,.2f} BOUNTY")
+    st.info(f"**총 매수금액 (원금):** {PRINCIPAL:,} 원\n\n**보유 수량:** {COIN_AMOUNT:,.8f} BOUNTY")
 else:
     st.error("업비트 서버에서 시세를 가져오지 못했습니다. 종목 코드를 확인해주세요.")
